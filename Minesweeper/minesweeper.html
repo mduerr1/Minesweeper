@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="minesweeper.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <script src="minesweeper.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Minesweeper</h1>
+      <p>Number of Rows:</p>
+      <input type="text" id="rows" value="">
+      <p>Number of Columns:</p>
+      <input type="text" id="columns" value="">
+      <p>Mine frequency:</p>
+      <input type="text" id="frequency" value="">
+      <p id="percent">%</p>
+      <br>
+    </header>
+    <br>
+    <h3 id="start" onclick="buildBoard()">Start Game</h3>
+    <div>
+      <h5>Default board is 10 x 10 with 20% frequency</h5>
+      <p id="hide">Click to reveal a tile, press alt and click to flag</p>
+    </div>
+    <h2 id="score"></h2>
+    <table id="field">
+    </table>
+    <h4 id="result"></h4>
+    <br>
+    <div id="scores"></div>
+    <footer>Made by Mitchell Duerr</footer>
+  </body>
+</html>
