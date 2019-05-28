@@ -10,6 +10,8 @@ var numCleared = 0;
 var maxScore = 10000;
 var game = 0;
 
+// Builds a new, blank game board and starts the game. Has a default size
+// of 10x10 with a bomb frequency of 20%.
 function buildBoard() {
   startTime = new Date().getTime();
   totalRows = Number(document.getElementById("rows").value);
@@ -63,6 +65,8 @@ function buildBoard() {
   }
 }
 
+// Returns the number of bombs in adjacent squares to the square in
+// position (row,col) of board
 function getNumber(row, col) {
   var num = 0;
   var squares = [0,0,0,0,0,0,0,0];
@@ -92,6 +96,8 @@ function getNumber(row, col) {
   return num;
 }
 
+// Returns a -1 if the user has lost, a 1 if the user has won, and 0 if
+// the game is still in progress. Also updates the score.
 function checkResult() {
   var win = true;
   for (var r = 0; r < board.length; r++) {
@@ -120,6 +126,7 @@ function checkResult() {
   return 0;
 }
 
+// Toggles the a space between flagged and un-flagged.
 function flag(space) {
   if (space.innerHTML == "") {
     space.innerHTML = "🚩";
@@ -131,6 +138,8 @@ function flag(space) {
   }
 }
 
+// Sets a space to visible if the user isn't trying to flag it, otherwise
+// passes the space object to the flag() function.
 function reveal(space, event) {
     if (!gameOver) {
       if (event.altKey)
@@ -156,6 +165,8 @@ function reveal(space, event) {
     }
 }
 
+// Returns the score of the player, calculated using the number of squares
+// revealed as well as how much time has passed since the user created the game.
 function getScore(x) {
   if (x != 0) {
     score = maxScore - (new Date().getTime() - startTime) / 50;
